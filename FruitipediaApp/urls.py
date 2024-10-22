@@ -9,3 +9,4 @@ urlpatterns = [
     path('profile/', include('FruitipediaApp.appprofile.urls')),
 ]
 
+#4 : 45
