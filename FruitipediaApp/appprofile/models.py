@@ -32,6 +32,7 @@ class Profile(models.Model):
             MinLengthValidator(8)
         ],
         help_text='*Password length requirements: 8 to 20 characters'
+
     )
     image_url = models.URLField(
         blank=True,

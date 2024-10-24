@@ -123,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"  # BASE URL - място от където достъпваме статичните ресурси
-STATICFILESDIRS = (
+STATICFILES_DIRS = (
     BASE_DIR / 'staticfiles',  # create a folder staticfiles, usually on the level of manage. py
 )  # The place on the filesystem where staticfiles are
 

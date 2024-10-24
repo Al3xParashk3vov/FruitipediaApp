@@ -5,5 +5,5 @@ from FruitipediaApp.common import views
 
 urlpatterns=[
     path('', views.index, name='index'),
-    path('dashboard/', views.index, name='dash'),
+    path('dashboard/', views.DashboardView.as_view(), name='dash'),
 ]
