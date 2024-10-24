@@ -28,8 +28,7 @@ class Fruit(models.Model):
         null=True,
     )
     owner = models.ForeignKey(
-        'appprofile.Profile',
+        to ='appprofile.Profile',
         on_delete=models.CASCADE,
         related_name='fruits',
-        blank=True,
     )

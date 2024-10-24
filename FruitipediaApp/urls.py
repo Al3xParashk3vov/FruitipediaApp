@@ -5,6 +5,7 @@ from FruitipediaApp import fruit, appprofile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('FruitipediaApp.common.urls')),
     path('fruit/', include('FruitipediaApp.fruit.urls')),
     path('profile/', include('FruitipediaApp.appprofile.urls')),
 ]
