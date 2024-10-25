@@ -2,10 +2,11 @@
 {% load static %}
 {% block content %}
         <!-- Dashboard Page -->
+        {% if fruits %}
         <h2>Fruits</h2>
         <section id="dashboard">
             <!-- Display a div "fruit" with information about each post (if any)-->
-
+            
             <!-- first fruit -->
             <div class="fruit">
                 <!-- fruit image -->
@@ -43,8 +44,9 @@
             </div>
 
         </section>
-
+        
         <!-- Display a heading if there are no posts -->
+        {% else %}
         <h2>No fruit info yet.</h2>
-
+        {% endif %}
 {% endblock %}

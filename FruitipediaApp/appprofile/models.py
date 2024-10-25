@@ -16,6 +16,7 @@ class Profile(models.Model):
     last_name = models.CharField(
         max_length=35,
         blank=False,
+        null=False,
         validators=(
             MinLengthValidator(1),
             name_validator,
@@ -24,6 +25,7 @@ class Profile(models.Model):
     email = models.EmailField(
         unique=True,
         blank=False,
+        null=False,
         max_length=40,
     )
     password = models.CharField(
@@ -31,7 +33,6 @@ class Profile(models.Model):
         validators=[
             MinLengthValidator(8)
         ],
-        help_text='*Password length requirements: 8 to 20 characters'
 
     )
     image_url = models.URLField(

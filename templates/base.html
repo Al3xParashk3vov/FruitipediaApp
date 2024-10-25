@@ -20,8 +20,9 @@
             {% if profile %}
             <!-- If there is a user profile -->
             <div class="user">
-                <a href="#">Dashboard</a>
+                <a href="{% url 'dash' %}">Dashboard</a>
                 <a href="#">Add Fruit</a>
+{#                {% url 'add-fruit' %} {% url 'details-profile' %}#}
                 <a href="#">Profile</a>
             </div>
             {% else %}
@@ -34,10 +35,12 @@
             {% endif %}
         </nav>
     </header>
-
-    {% block content %}
+    <main>
+        {% block content %}
     	
     {% endblock %}
+    </main>
+    
     
 </div>
 <!-- footer -->

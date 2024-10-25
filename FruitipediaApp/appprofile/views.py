@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 
-from FruitipediaApp.utils import get_user_obj
+from FruitipediaApp.utils import get_profile
 from FruitipediaApp.appprofile.forms import ProfileCreateForm
 from FruitipediaApp.appprofile.models import Profile
 
@@ -10,18 +10,19 @@ from FruitipediaApp.appprofile.models import Profile
 # class ProfileCreateView():
 #     pass
 
-class ProfileCreateView(CreateView):
-    model = Profile
-    form_class = ProfileCreateForm
-    template_name = 'profile/create-profile.html'
-    success_url = reverse_lazy('dash')
+def create_profile(request):
+    profile = get_profile()
+    form = ProfileCreateForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('dash')
 
-    def get_context_data(self, *, object_list=None,**kwargs):
-        context = super().get_context_data()
-        context['profile'] = get_user_obj()
-        return context
+    context = {
+        'profile': profile,
+        'form': form,
 
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+    }
+
+    return render(request, 'profile/create-profile.html', context)
 
